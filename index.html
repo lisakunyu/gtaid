@@ -3,150 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA San Andreas Indonesia</title>
+    <title>GTA Indonesia</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: white;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        header {
-            background-color: #2c3e50;
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
             color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        nav {
-            background-color: #34495e;
-            padding: 1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #f1c40f;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 20px;
         }
 
-        .hero-image {
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: fixed;
             width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            margin: 1rem 0;
+            top: 0;
         }
 
-        .content-section {
-            margin: 2rem 0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        nav ul {
+            display: flex;
+            justify-content: center;
             gap: 2rem;
+            list-style: none;
         }
 
-        .card {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-
-        footer {
-            background-color: #2c3e50;
+        nav a {
             color: white;
-            text-align: center;
-            padding: 1rem;
-            position: sticky;
-            bottom: 0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin: 5px;
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://source.unsplash.com/random/1920x1080/?gaming') center/cover;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Button Style */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .feature-card {
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>GTA SAN ANDREAS FANSITE</h1>
-        <p>Berbagi informasi seputar mod, cheat, dan tips bermain</p>
-    </header>
-
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#cheats">Cheats</a></li>
-            <li><a href="#mods">Mods</a></li>
-            <li><a href="#about">Tentang</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#contact">Kontak</a></li>
         </ul>
     </nav>
 
-    <div class="container">
-        <section class="content-section">
-            <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/GTASABOX.jpg" 
-                 alt="GTA San Andreas Cover" 
-                 class="hero-image">
-            
-            <h2>Selamat Datang di Dunia San Andreas</h2>
-            <p>Temukan berbagai konten menarik seputar game legendaris Grand Theft Auto: San Andreas.</p>
-        </section>
-
-        <div class="grid">
-            <section class="card">
-                <h3>Informasi Game</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/79/GTA_San_Andreas_game_cover.jpg/2560px-GTA_San_Andreas_game_cover.jpg" 
-                     alt="GTA San Andreas Characters">
-                <p>Platform: PC, PlayStation, Xbox<br>
-                Tahun Rilis: 2004<br>
-                Developer: Rockstar Games</p>
-            </section>
-
-            <section class="card">
-                <h3>Download Mod Terbaru</h3>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Groove_Street.jpg/1280px-Groove_Street.jpg" 
-                     alt="GTA San Andreas Mods">
-                <ul>
-                    <li>Graphic Mod v3.2</li>
-                    <li>Car Pack 2024</li>
-                    <li>Story Expansion</li>
-                </ul>
-            </section>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Selamat Datang di GTA Indonesia</h1>
+            <p>Pengalaman bermain GTA yang disesuaikan dengan budaya Indonesia</p>
+            <a href="#download" class="cta-button">Download Sekarang</a>
         </div>
+    </section>
 
-        <section class="content-section">
-            <h2>Galeri</h2>
-            <div class="gallery">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/5a/GTA_San_Andreas_PS2_cover.jpg" alt="Gameplay 1">
-                <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/GTASAmap.jpg" alt="Map">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/GTA_San_Andreas_Scrapyard.jpg" alt="Scrapyard">
+    <section class="features" id="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Fitur Unggulan</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div class="feature-card">
+                    <h3>🗺️ Peta Indonesia</h3>
+                    <p>Jelajahi lingkungan dengan nuansa khas Indonesia</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚗 Kendaraan Lokal</h3>
+                    <p>Becak, angkot, dan kendaraan khas Indonesia lainnya</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎮 Multiplayer</h3>
+                    <p>Mainkan bersama teman-teman secara online</p>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2024 GTA San Andreas Fansite - All rights reserved</p>
+    <section id="download" style="padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <h2>Download Sekarang</h2>
+            <p style="margin: 2rem 0;">Versi terbaru: 1.0.0</p>
+            <a href="#" class="cta-button">Download untuk Windows</a>
+            <a href="#" class="cta-button" style="background: #27ae60;">Download untuk Android</a>
+        </div>
+    </section>
+
+    <footer style="background: rgba(0,0,0,0.8); padding: 2rem; text-align: center;">
+        <p>© 2023 GTA Indonesia. All rights reserved.</p>
     </footer>
 </body>
 </html>
