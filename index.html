@@ -3,173 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA Indonesia</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            color: white;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #3498db;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                        url('https://source.unsplash.com/random/1920x1080/?gaming') center/cover;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Button Style */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 5rem 0;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .feature-card {
-            background: rgba(0,0,0,0.5);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 1rem;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <title>Website Video dari Google Drive</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Fitur</a></li>
-            <li><a href="#download">Download</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Selamat Datang di GTA Indonesia</h1>
-            <p>Pengalaman bermain GTA yang disesuaikan dengan budaya Indonesia</p>
-            <a href="#download" class="cta-button">Download Sekarang</a>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem;">Fitur Unggulan</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div class="feature-card">
-                    <h3>🗺️ Peta Indonesia</h3>
-                    <p>Jelajahi lingkungan dengan nuansa khas Indonesia</p>
+    <div class="container">
+        <h1>Video Gallery</h1>
+        <div class="video-container">
+            <div class="video-list">
+                <div class="video-item" data-video-id="VIDEO_ID_1">
+                    <img src="https://img.youtube.com/vi/16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE/default.jpg" alt="Video 1">
+                    <p>Video 1</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🚗 Kendaraan Lokal</h3>
-                    <p>Becak, angkot, dan kendaraan khas Indonesia lainnya</p>
+                <div class="video-item" data-video-id="VIDEO_ID_2">
+                    <img src="https://img.youtube.com/vi/1PKmv_FoQEUhCyOT28oBelxsV5nkT581k/default.jpg" alt="Video 2">
+                    <p>Video 2</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🎮 Multiplayer</h3>
-                    <p>Mainkan bersama teman-teman secara online</p>
-                </div>
+                <!-- Tambahkan lebih banyak video di sini -->
+            </div>
+            <div class="video-player">
+                <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-    </section>
-
-    <section id="download" style="padding: 5rem 0; text-align: center;">
-        <div class="container">
-            <h2>Download Sekarang</h2>
-            <p style="margin: 2rem 0;">Versi terbaru: 1.0.0</p>
-            <a href="#" class="cta-button">Download untuk Windows</a>
-            <a href="#" class="cta-button" style="background: #27ae60;">Download untuk Android</a>
+        <div class="comment-section">
+            <h2>Komentar</h2>
+            <div id="comments"></div>
+            <form id="comment-form">
+                <textarea id="comment-input" placeholder="Tulis komentar Anda..." required></textarea>
+                <button type="submit">Kirim Komentar</button>
+            </form>
         </div>
-    </section>
-
-    <footer style="background: rgba(0,0,0,0.8); padding: 2rem; text-align: center;">
-        <p>© 2023 GTA Indonesia. All rights reserved.</p>
-    </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
