@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Video dari Google Drive</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://lisakunyu.github.io/gtaid/styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Video Gallery</h1>
         <div class="video-container">
+            <!-- Daftar Video -->
             <div class="video-list">
-                <div class="video-item" data-video-id="VIDEO_ID_1">
-                    <img src="https://img.youtube.com/vi/16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE/default.jpg" alt="Video 1">
+                <div class="video-item" data-video-id="16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE">
+                    <img src="https://drive.google.com/thumbnail?id=16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE" alt="Video 1">
                     <p>Video 1</p>
                 </div>
-                <div class="video-item" data-video-id="VIDEO_ID_2">
-                    <img src="https://img.youtube.com/vi/1PKmv_FoQEUhCyOT28oBelxsV5nkT581k/default.jpg" alt="Video 2">
+                <div class="video-item" data-video-id="1PKmv_FoQEUhCyOT28oBelxsV5nkT581k">
+                    <img src="https://drive.google.com/thumbnail?id=1PKmv_FoQEUhCyOT28oBelxsV5nkT581k" alt="Video 2">
                     <p>Video 2</p>
                 </div>
                 <!-- Tambahkan lebih banyak video di sini -->
             </div>
+
+            <!-- Pemutar Video -->
             <div class="video-player">
                 <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+
+        <!-- Kolom Komentar -->
         <div class="comment-section">
             <h2>Komentar</h2>
             <div id="comments"></div>
@@ -34,6 +39,6 @@
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="https://lisakunyu.github.io/gtaid/script.js"></script>
 </body>
 </html>
