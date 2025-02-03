@@ -1,49 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const videoItems = document.querySelectorAll(".video-item");
-    const videoFrame = document.getElementById("video-frame");
-    const commentsDiv = document.getElementById("comments");
-    const commentForm = document.getElementById("comment-form");
-    const commentInput = document.getElementById("comment-input");
+// Konfigurasi Google Drive
+const driveId = '10pQP4IerbE-HN6F4BbnLiA8eqUQTtoX4';
+const apiKey = 'AIzaSyCbJE1a9ECldwNX-ETVjuStH8P-IsHqm58';
 
-    let currentVideoId = "";
+// Inisialisasi video list
+const videoList = document.getElementById('video-list');
 
-    // Simpan komentar dalam objek dengan videoId sebagai kunci
-    const comments = {};
-
-    videoItems.forEach((item) => {
-        item.addEventListener("click", function () {
-            const videoId = item.getAttribute("data-video-id");
-            currentVideoId = videoId;
-            videoFrame.src = `https://drive.google.com/file/d/${videoId}/preview`;
-
-            // Tampilkan komentar untuk video yang dipilih
-            displayComments(videoId);
-        });
-    });
-
-    commentForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const commentText = commentInput.value.trim();
-
-        if (commentText && currentVideoId) {
-            if (!comments[currentVideoId]) {
-                comments[currentVideoId] = [];
-            }
-            comments[currentVideoId].push(commentText);
-            displayComments(currentVideoId);
-            commentInput.value = "";
-        }
-    });
-
-    function displayComments(videoId) {
-        commentsDiv.innerHTML = "";
-        if (comments[videoId]) {
-            comments[videoId].forEach((comment) => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment");
-                commentElement.textContent = comment;
-                commentsDiv.appendChild(commentElement);
+// Fungsi untuk menampilkan video list
+function displayVideoList() {
+    fetch(`https://www.googleapis.com/drive/v3/files?q='${driveId}'%20in%20parents&key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const videos = data.files;
+            videos.forEach(video => {
+                const videoListItem = document.createElement('li');
+                videoListItem.innerHTML = `
+                    <a href="#" data-video-id="${video.id}">${video.name}</a>
+                `;
+                videoList.appendChild(videoListItem);
             });
-        }
+        });
+}
+
+// Fungsi untuk menampilkan video
+function displayVideo(videoId) {
+    const videoElement = document.getElementById('video');
+    videoElement.src = `https://drive.google.com/uc?id=${videoId}&export=download`;
+}
+
+// Fungsi untuk mengirim komentar
+function submitComment(comment) {
+    const commentList = document.getElementById('comment-list');
+    const commentListItem = document.createElement('li');
+    commentListItem.innerHTML = comment;
+    commentList.appendChild(commentListItem);
+}
+
+// Event listener untuk video list
+videoList.addEventListener('click', event => {
+    if (event.target.tagName === 'A') {
+        const videoId = event.target.dataset.videoId;
+        displayVideo(videoId);
     }
-}); 
+});
+
+// Event listener untuk form komentar
+document.getElementById('comment-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const comment = document.getElementById('comment').value;
+    submitComment(comment);
+    document.getElementById('comment').value = '';
+});
+
+// Panggil fungsi untuk menampilkan video list
+displayVideoList();
