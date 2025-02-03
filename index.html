@@ -1,44 +1,33 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Video dari Google Drive</title>
-    <link rel="stylesheet" href="https://lisakunyu.github.io/gtaid/styles.css">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Video Gallery</h1>
         <div class="video-container">
-            <!-- Daftar Video -->
-            <div class="video-list">
-                <div class="video-item" data-video-id="16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE">
-                    <img src="https://drive.google.com/thumbnail?id=16LWWbkf9cR_pCZkbNmeQ0cwVJ-lNwPuE" alt="Video 1">
-                    <p>Video 1</p>
-                </div>
-                <div class="video-item" data-video-id="1PKmv_FoQEUhCyOT28oBelxsV5nkT581k">
-                    <img src="https://drive.google.com/thumbnail?id=1PKmv_FoQEUhCyOT28oBelxsV5nkT581k" alt="Video 2">
-                    <p>Video 2</p>
-                </div>
-                <!-- Tambahkan lebih banyak video di sini -->
-            </div>
-
-            <!-- Pemutar Video -->
-            <div class="video-player">
-                <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <video id="video" width="640" height="480" controls></video>
         </div>
-
-        <!-- Kolom Komentar -->
-        <div class="comment-section">
+        <div class="video-list">
+            <ul id="video-list">
+                <!-- Video list akan ditampilkan di sini -->
+            </ul>
+        </div>
+        <div class="comment-container">
             <h2>Komentar</h2>
-            <div id="comments"></div>
             <form id="comment-form">
-                <textarea id="comment-input" placeholder="Tulis komentar Anda..." required></textarea>
-                <button type="submit">Kirim Komentar</button>
+                <input type="text" id="comment" placeholder="Tulis komentar...">
+                <button id="submit-comment">Kirim</button>
             </form>
+            <div id="comment-list">
+                <!-- Komentar akan ditampilkan di sini -->
+            </div>
         </div>
     </div>
-    <script src="https://lisakunyu.github.io/gtaid/script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
