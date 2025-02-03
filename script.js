@@ -1,5 +1,5 @@
 // Konfigurasi Google Drive
-const driveId = '11h7GNTSDyiBA9rYA3pKc0bodBp2vQhyA';
+const driveId = '10aHT-YiIgXNga581xiIeV6mEbmk9GnYS';
 const apiKey = 'AIzaSyCbJE1a9ECldwNX-ETVjuStH8P-IsHqm58';
 
 // Inisialisasi video list
