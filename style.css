@@ -1,44 +1,187 @@
-```
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    background: #000;
+    overflow: hidden;
+    touch-action: none;
     font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
-.video-container {
-    float: left;
-    width: 640px;
-    height: 480px;
-    margin-right: 20px;
+#gameCanvas {
+    display: block;
+    background: #000;
 }
 
-.video-list {
-    float: left;
-    width: 150px;
+#statsFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #00FFFF;
+    display: flex;
+    justify-content: space-around;
+    color: #FFF;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px #000;
+    z-index: 100;
 }
 
-.comment-container {
-    clear: both;
-    padding-top: 20px;
+.stat-item {
+    padding: 5px 10px;
+    background: rgba(0, 100, 150, 0.3);
+    border: 1px solid #00FFFF;
+    border-radius: 5px;
 }
 
-#comment-list {
-    padding-top: 10px;
+#gameUI {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: #FFF;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-shadow: 1px 1px 2px #000;
+    pointer-events: none;
 }
 
-#comment-list li {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+#livesDisplay {
+    font-size: 1rem;
+    color: #FF4444;
+    text-shadow: 1px 1px 2px #000;
 }
 
-#comment-list li:last-child {
-    border-bottom: none;
+.upgrade-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 450px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(0, 20, 60, 0.95), rgba(0, 120, 180, 0.85));
+    border: 3px solid #00FFFF;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), inset 0 0 15px rgba(0, 255, 255, 0.3);
+    z-index: 200;
+    pointer-events: auto;
+    animation: neonGlow 1.5s infinite alternate;
 }
-```  
+
+@keyframes neonGlow {
+    from {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), inset 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+}
+
+.upgrade-title {
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    color: #00FFFF;
+    text-align: center;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(0, 180, 255, 0.3);
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #00FFFF;
+}
+
+.upgrade-btn:hover {
+    background: rgba(0, 180, 255, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.upgrade-btn:active {
+    transform: scale(0.95);
+    background: rgba(0, 255, 255, 0.8);
+}
+
+#controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    gap: 0;
+}
+
+.controlBtn {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+#leftBtn {
+    margin-right: auto;
+}
+
+#rightBtn {
+    margin-left: auto;
+}
+
+#rocketBtn {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    background: rgba(255, 0, 0, 0.3);
+    border: 2px solid rgba(255, 100, 100, 0.8);
+}
+
+.boss-enemy {
+    border: 2px solid #FF0 !important;
+    box-shadow: 0 0 10px #FF0;
+}
+
+.explosive-enemy {
+    border: 2px solid #FF4500 !important;
+    box-shadow: 0 0 10px #FF4500;
+}
